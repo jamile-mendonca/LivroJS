@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* Elaborar um programa para uma loja, o qual leia o preço de um produto e
+informe as opções de pagamento da loja. Calcule e informe o valor para
+pagamento à vista com 10% de desconto e o valor em 3x. */
+    let preco = Number(prompt("Digite o preço do produto:"))
+    preco = preco.toFixed(2)
+    let aVista = (preco - (preco * 0.10)).toFixed(2)
+    let parcelado3 = (preco / 3).toFixed(2)
+
+    alert(`Preço do produto: R$ ${preco}, Á vista R$${aVista}, 3x de R$ ${parcelado3}`)
+
+  </script>
+</body>606
+
+</html>

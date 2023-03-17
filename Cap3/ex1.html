@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Programa Par ou Ímpar</h1>
+  <p>Número:</p> <input type="number" id="numero"> <br><br>
+  <input type="button" value="Verificar se é par ou ímpar" id="verificar">
+  <h3 id="resultado"></h3>
+  <script>
+    /*  Elaborar um programa que leia um número. Informe se ele é par ou
+  ímpar. A Figura 3.7 ilustra a tela de execução do programa. Para os
+  exercícios, foi utilizada uma figura padrão,mas você pode substituí-la caso tenha interesse. */
+    function parOuImpar() {
+      let numero = Number(document.getElementById('numero').value)
+      let resultado = document.getElementById('resultado')
+      if (numero % 2 == 0) {
+        resultado.textContent = `Resposta: ${numero} é par`
+      } else {
+        resultado.textContent = `Resposta: ${numero} é ímpar`
+      }
+
+    }
+
+    let btn = document.getElementById('verificar').addEventListener("click", parOuImpar)
+
+
+  </script>
+</body>
+
+</html>

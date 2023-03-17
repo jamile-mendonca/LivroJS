@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Programa Lados de um triangulo</h1>
+  <p>Lado A:</p> <input type="number" id="a">
+  <p>Lado B:</p> <input type="number" id="b">
+  <p>Lado C:</p> <input type="number" id="c"> <br> <br>
+  <input type="button" value="Verificar Lados" id="btn-check">
+  <h3 id="confirmacao"></h3>
+  <h3 id="tipo"></h3>
+
+  <script>
+    /* Elaborar um programa que leia três lados e verifique se eles podem ou não formar um triangulo. Para formar um triangulo,
+    um dos lados não pode ser maior que a soma dos outros 2. Caso possam formar um triangulo, exiba também qual o tipo do triângulo:
+    Equilátero (3 lados iguais), Isósceles (2 lados iguais) e Escaleno (3 lados diferentes) */
+    function verifLados() {
+      let ladoA = Number(document.getElementById('a').value)
+      let ladoB = Number(document.getElementById('b').value)
+      let ladoC = Number(document.getElementById('c').value)
+      let conf = document.getElementById('confirmacao')
+      let tipo = document.getElementById('tipo')
+
+      if (ladoA > (ladoB + ladoC) || ladoB > (ladoA + ladoC) || ladoC > (ladoA + ladoB)) {
+        conf.textContent = `Lados não podem formar um triângulo.`
+        tipo.textContent = ""
+      } else {
+        conf.textContent = `Lados podem formar um triângulo.`
+        if (ladoA === ladoB && ladoA === ladoC && ladoB === ladoC) {
+          tipo.textContent = `Tipo: Equilátero`
+        } else if (ladoA == ladoB || ladoA == ladoC || ladoB == ladoC) {
+          tipo.textContent = `Tipo: Isósceles`
+        } else {
+          tipo.textContent = `Tipo: Escaleno`
+        }
+      }
+    }
+
+    let btnCheck = document.getElementById('btn-check').addEventListener("click", verifLados)
+  </script>
+</body>
+
+</html>
