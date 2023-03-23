@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contas do mês</title>
+</head>
+
+<body>
+  <h1>Fábrica de Estrelas</h1>
+  <p>Número de Símbolos:
+    <input type="text" id="inNumero">
+  </p>
+  <input type="button" value="Preencher Espaço" id="btPreencher">
+  <h3 id="outEspacos"></h3>
+
+  <script>
+    function preencherEstrelas() {
+      // cria referência aos elementos html manipulados pela function
+      var inNumero = document.getElementById("inNumero");
+      var outEspacos = document.getElementById("outEspacos");
+      var num = Number(inNumero.value); // obtém conteúdo do campo
+      inNumero
+      if (num == 0 || isNaN(num)) {
+        alert("Número Inválido...");
+        inNumero.focus();
+        return;
+      }
+      var estrelas = ""; // declara variável que irá concatenar as estrelas / traços
+      // cria um laço de repetição de 1 até o número informado
+      for (var i = 1; i <= num; i++) {
+        if (i % 2 == 1) {
+          estrelas = estrelas + "*"; // na posição ímpar do i: *
+        } else {
+          estrelas = estrelas + "-"; // na posição par: -
+        }
+      }
+      outEspacos.textContent = estrelas; // exibe as estrelas
+    }
+    // cria referência ao botão e após associa function ao evento click
+    var btPreencher = document.getElementById("btPreencher");
+    btPreencher.addEventListener("click", preencherEstrelas);
+
+
+  </script>
+</body>
+
+</html>

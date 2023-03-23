@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repete Fruta</title>
+</head>
+
+<body>
+  <h1>Programa Repete Fruta</h1>
+  <p>Fruta:</p>
+  <p><input type="text" id="fruta"></p>
+  <p>Número:</p>
+  <p><input type="number" id="numero"></p>
+  <p><input type="button" value="Repetir Fruta" id="btn-repetir"></p>
+  <h3 id="resultado"></h3>
+
+  <script>
+    /* ) Elaborar um programa que leia o nome de uma fruta e um número. O
+programa deve repetir a exibição do nome da fruta, de acordo com o número
+informado. Utilize o “*” para separar os nomes. A Figura 4.15 ilustra a
+execução do programa.*/
+    function repetirFrutas() {
+      let fruta = document.getElementById('fruta').value
+      let numero = Number(document.getElementById('numero').value)
+      let resultado = document.getElementById('resultado')
+
+      let stringRetorno = "";
+      for (let i = 0; i <= numero; i++) {
+
+        stringRetorno += `${fruta} ${i === numero ? "" : "*"}`
+
+      }
+      resultado.textContent = stringRetorno;
+    }
+    const btnRepeat = document.getElementById('btn-repetir').addEventListener('click', repetirFrutas)
+
+  </script>
+</body>
+
+</html>

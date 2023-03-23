@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa Criação de Chinchilas</title>
+</head>
+
+<body>
+  <h1>Programa Criação de Chinchilas</h1>
+  <p>Nº de Chinchilas:</p>
+  <p><input type="number" id="numero-chinc"></p>
+  <p>Nº Anos:</p>
+  <p><input type="number" id="numero"></p>
+  <p><input type="button" value="Mostrar previsão de chinchilas" id="btn-repetir"></p>
+  <h3 id="resultado"></h3>
+
+  <script>
+    /* Digamos que o número de chinchilas de uma fazenda triplica a cada ano,
+    após o primeiro ano. Elaborar um programa que leia o número inicial de
+    chinchilas e anos e informe ano a ano o número médio previsto de chinchilas
+    da fazenda. Validar a entrada para que o número inicial de chinchilas seja
+    maior ou igual a 2 (um casal). A Figura 4.16 exibe a página com um exemplo
+    de saída do programa.*/
+
+    function criacaoChinchilas() {
+      const chinchilas = Number(document.getElementById("numero-chinc").value)
+      const anos = Number(document.getElementById("numero").value)
+      const resultado = document.getElementById("resultado")
+      let calcAnos = ""
+      calcTotal = chinchilas
+
+      if (chinchilas < 2) {
+        alert("O mínimo de Chinchilas deverá ser 2")
+      }
+      for (let i = 1; i <= anos; i++) {
+        calcTotal = i === 1 ? chinchilas : (calcTotal * 3)
+        calcAnos += `<h3> ${i}º Ano: ${calcTotal} Chinchilas </h3>`
+
+      }
+      resultado.innerHTML = calcAnos
+
+    }
+
+    const previsao = document.getElementById('btn-repetir').addEventListener("click", criacaoChinchilas)
+
+  </script>
+</body>
+
+</html>

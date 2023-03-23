@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raiz Quadrada</title>
+</head>
+
+<body>
+  <h1>Programa Raiz Quadrada</h1>
+  <p>Número:
+    <input type="text" id="inNumero">
+  </p>
+  <p>
+    <input type="button" value="Exibir Raiz Quadrada" id="btExibir">
+  </p>
+  <h3 id="outResposta"></h3>
+
+
+
+
+  <script>
+
+    function calcularRaiz() {
+      // cria uma referência aos elementos da página
+      var inNumero = document.getElementById("inNumero");
+      var outResposta = document.getElementById("outResposta");
+      var numero = Number(inNumero.value); // obtém conteúdo do campo inNumero
+      // se não preencheu ou Not-a-Number (NaN)
+      if (numero == 0 || isNaN(numero)) {
+        alert("Informe um número válido..."); // exibe alerta
+        inNumero.focus(); // posiciona no campo inNumero
+        return; // retorna
+      }
+      var raiz = Math.sqrt(numero); // calcula raiz quadrada do número
+      // se valor da variável raiz igual a este valor arredondado para baixo...
+      if (raiz == Math.floor(raiz)) {
+        outResposta.textContent = "Raiz: " + raiz; // mostra a raiz
+      } else {
+        // senão, exibe mensagem indicando que não há raiz exata
+        outResposta.textContent = "Não há raiz exata para " + numero;
+      }
+    }
+    // cria referência ao elemento btExibir e registra evento que irá carregar function
+    var btExibir = document.getElementById("btExibir");
+    btExibir.addEventListener("click", calcularRaiz);
+
+
+
+
+
+  </script>
+</body>
+
+</html>

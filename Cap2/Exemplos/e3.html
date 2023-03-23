@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revenda de Veiculos</title>
+</head>
+
+<body>
+  <h1>Revenda de Veículos JS</h1>
+  <p> Veículo:
+    <input type="text" id="inVeiculo">
+  </p>
+  <p> Preço R$:
+    <input type="text" id="inPreco">
+  </p>
+  <p> <input type="button" value="Ver Promoção" id="btVerPromocao">
+  </p>
+  <h3 id="outVeiculo"></h3>
+  <h3 id="outEntrada"></h3>
+  <h3 id="outParcela"></h3>
+
+
+  <script>
+    function mostrarPromocao() {
+      // cria referência aos elementos manipulados pelo programa
+      var inVeiculo = document.getElementById("inVeiculo");
+      var inPreco = document.getElementById("inPreco");
+      var outVeiculo = document.getElementById("outVeiculo");
+      var outEntrada = document.getElementById("outEntrada");
+      var outParcela = document.getElementById("outParcela");
+      // obtém conteúdo dos campos de entrada
+      var veiculo = inVeiculo.value;
+      var preco = Number(inPreco.value);
+      // calcula valor da entrada e das parcelas
+      var entrada = preco * 0.50;
+      var parcela = (preco * 0.50) / 12;
+      // altera o conteúdo dos parágrafos de resposta
+      outVeiculo.textContent = "Promoção: " + veiculo;
+      outEntrada.textContent = "Entrada de R$: " + entrada.toFixed(2);
+      outParcela.textContent = "+ 12x de R$: " + parcela.toFixed(2);
+    }
+    // cria uma referência ao elemento btVerPromocao (botão)
+    var btVerPromocao = document.getElementById("btVerPromocao");
+    // registra um evento associado ao botão, para carregar uma função
+    btVerPromocao.addEventListener("click", mostrarPromocao);
+
+  </script>
+</body>
+
+</html>
